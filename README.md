@@ -12,7 +12,7 @@ which should download all the required libraries to run this app.
 
 ## Running a local instance of the app
 
-After doanloading the necessary libraries, please navigate to the testerMatching folder. Once there, run the command 
+After doanloading the necessary libraries, please navigate to the TestMatchApp folder. Once there, run the command 
 
 `export FLASK_APP=testermatching.py` if on Unix machines, or
 
