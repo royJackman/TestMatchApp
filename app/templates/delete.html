@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3>Dev tools!</h3><br>
+<h4>Delete tool</h4>
+<form action="" method="post" class="block">
+    {{form.hidden_tag()}}
+    <p>
+        {{form.areYouSure.label}}<br>
+        {{form.areYouSure()}}<br>
+        {% for error in form.areYouSure.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>{{form.submit()}}</p>
+</form>
+{%endblock%}

@@ -1,0 +1,57 @@
+<html>
+    <head>
+        {% if title %}
+        <title>{{title}} - TM</title>
+        {% else %}
+        <title>Welcome to TM</title>
+        {% endif %}
+        <!-- <link rel="stylesheet" type="text/css" href="baseStyle.css"> -->
+        <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        .column {
+            float: left;
+            width: 33.33%;
+            padding: 10px;
+            height: 300px;
+        }
+        
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        </style>
+    </head>
+
+    <body>
+        <div>
+            TesterMatch:
+            <a href="{{ url_for('index', testers=None) }}">Home</a>
+            <a href="{{ url_for('results', country='ALL', devices=1) }}">Search</a>
+            <a href="{{ url_for('devtools') }}">Devtools</a>
+            {% if search %}
+            <form action="" method="POST">
+                {{search.hidden_tag()}} {{search.country.label}} <br> {{search.country(size=3)}} <br> {{search.device(size=10)}} <br> {{search.submit}}
+            </form>
+            {% endif %}
+        </div>
+        <hr>
+        {% with messages = get_flashed_messages() %}
+
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+
+        <div class="block">
+            {% block content %} {% endblock %}
+        </div>
+    </body>
+</html>

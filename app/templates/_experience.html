@@ -1,0 +1,4 @@
+<div>
+    <p> {{db.session.query(Tester).filter_by(id=experience.tester_id).first().name() }}
+    Found {{experience.bugs}} bugs on {{db.session.query(Device).filter_by(id=experience.device_id).first().device_name}}</p>
+</div>

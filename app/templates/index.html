@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>TesterMatch Home</h1>
+
+<div class="row">
+    <div class="column">
+        <h2>Testers</h2>
+        {% for tester in testers %}
+        {% include '_tester.html' %}
+        {% endfor %}
+    </div>
+    <div class="column">
+        <h2>Bugs</h2>
+        {% for bug in bugs %}
+        {% include '_bug.html' %}
+        {% endfor %}
+    </div>
+    <div class="column">
+        <h2>Devices</h2>
+        {% for device in devices %}
+        {% include '_device.html' %}
+        {% endfor %}
+    </div>
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3>Dev tools!</h3><br>
+<h4>Edit tool</h4>
+<form action="" method="post" class="block">
+    {{form.hidden_tag()}}
+    
+    {% if 'Bug' in title %}
+    <p>
+        {{form.device_id.label}}<br>
+        {{form.device_id(size=6)}}<br>
+        {% for error in form.device_id.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{form.tester_id.label}}<br>
+        {{form.tester_id(size=6)}}<br>
+        {% for error in form.tester_id.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    {% elif 'Device' in title %}
+    <p>
+        {{form.device_name.label}}<br>
+        {{form.device_name(size=50)}}<br>
+        {% for error in form.device_name.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    {% elif 'Tester' in title %}
+    <p>
+        {{form.first_name.label}}<br>
+        {{form.first_name(size=50)}}<br>
+        {% for error in form.first_name.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{form.last_name.label}}<br>
+        {{form.last_name(size=50)}}<br>
+        {% for error in form.last_name.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{form.country.label}}<br>
+        {{form.country(size=3)}}<br>
+        {% for error in form.country.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{form.devices.label}}<br>
+        {{form.devices(size=50)}}<br>
+        {% for error in form.devices.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    {% endif %}
+
+    <p>{{form.submit()}}</p>
+</form>
+{%endblock%}

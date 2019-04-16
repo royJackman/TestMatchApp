@@ -1,0 +1,5 @@
+<div>
+    <p> Bug {{bug.id}} </p>
+    <p> Filed by {{db.session.query(Tester).filter_by(id=bug.tester_id).first().name()}}</p>
+    <p> Reported on {{db.session.query(Device).filter_by(id=bug.device_id).first().device_name}}</p>
+</div>

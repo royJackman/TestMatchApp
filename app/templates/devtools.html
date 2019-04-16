@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Which tool for which object would you like to use?</h2>
+<form action="", method="post">
+    {{form.hidden_tag()}}
+    <p>
+        {{form.tool.label}} <br>
+        {{form.tool(size=3)}}<br>
+        {% for error in form.tool.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{form.obj_type.label}} <br>
+        {{form.obj_type(size=3)}}<br>
+        {% for error in form.obj_type.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{form.obj_id.label}} {{form.obj_id(size=5)}}<br>
+        {% for error in form.obj_id.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>{{form.submit()}}</p>
+</form>
+
+{% endblock %}

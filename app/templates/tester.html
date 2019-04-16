@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% include '_tester.html' %}
+<hr>
+<p> Familiar with: </p>
+{% for device in tester.devices %}
+{% include '_device.html' %}
+{% endfor %}
+{% endblock %}
+    

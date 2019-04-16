@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<h1>Search results:</h1><br>
+{% for coupling in ordering %}
+{% if coupling[1] > 0 %}
+<p><a href="{{url_for('tester', id=coupling[0])}}"> {{db.session.query(Tester).filter_by(id=coupling[0]).first().name()}}</a></p>
+{% for experience in exps[coupling[0]] %}
+<p>Filed {{experience.bugs}} bugs for {{db.session.query(Device).filter_by(id=experience.device_id).first().device_name}}</p>
+{% endfor %}
+<p>{{count[coupling[0]]}} total bugs filed for queried devices</p> <br>
+{% endif %}
+{% endfor %}
+
+{% endblock %}
